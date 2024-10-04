@@ -43,33 +43,35 @@ My first step was connecting to AWS Cloud 9 IDE. After connecting to the Cloud 9
 
 <br />
 
-I used a prebuilt template to analyze available traffic paths from an internet gateway. Network Access Analyzer uses automated reasoning algorithms to analyze the network paths that a packet can take between resources in an Amazon Web Services (AWS) network. The key concepts of the Network Access Analyzer are Network Access Scope and Findings. The Network Access Analyzer determines the types of findings that the analysis produces. You add entries to MatchPaths to specify the types of network paths to identify. You add entries to ExcludePaths to specify the types of network paths to exclude. Findings are potential paths in your network that match any of the MatchPaths entries in your Network Access Scope, but do not match any of the ExcludePaths entries in your Network Access Scope.
-![network access scope template](https://github.com/user-attachments/assets/8d824e51-dc02-48fe-8994-765524416718)
+I wanted to observe the web server document root directory and contents. To discover the default web server DocumentRoot location, I ran the following command: <b> cat /etc/apache2/sites-available/000-default.conf</b>. In the web server’s configuration file, webpages are served to users from the default directory /var/www/html. To list the contents of the default directory,  you can run the following command: <b> ls /var/www/html</b>.
+![Document Root location](https://github.com/user-attachments/assets/22448fd9-25f4-4fc7-a62f-d047cca98a92)
 
-
-<br />
-
-I created an inbound path and performed an analysis for it. The inbound path analysis starts from the internet gateway of vpc3 all the way up to the network interface of vpc3-public-ec2.
-If you review the network diagram provided at the top of this page. Both VPC 2 and VPC 3 have an internet gateway. You might ask why didn’t the analysis display an inbound path for vpc2?
-The reason is that the Network Access Scope definition for this analysis has a source of internet gateway and a destination of network interface. In this case, vpc2-private-ec2 is in a private subnet, and internet gateways do not have a direct path to network interfaces in a private subnet.
-![inbound path analysis](https://github.com/user-attachments/assets/2734ed81-b42f-48db-a2b6-55d51ff66fe8)
 
 
 <br />
 
-I created a VPC endpoint for the Amazon S3 service and verified its path using the Network Access Analyzer. VPC endpoints increase the security posture of a VPC by permitting connectivity to services without the need of an internet gateway. So your traffic stays within the AWS network.
+To retrieve the IPv4 public IP address of the instance AWS Cloud9 is running on, run this command: <b> curl 169.254.169.254/latest/meta-data/public-ipv4</b>. You will use this public IP address to load the webpage.
+![Retrieve IP Address to load webpage](https://github.com/user-attachments/assets/81c30c1b-7eab-4a6d-a354-a4473d678f22)
+
+
+
+<br />
+
+The webpage would not load for me.
  <br/>
-![Create VPC Endpoint 1](https://github.com/user-attachments/assets/ae7b1a48-ed68-4e98-9492-44993003a27d)
+![Unable to load webpage](https://github.com/user-attachments/assets/fc3791eb-6776-4385-bcfb-fe2fc6ef6105)
+
+
+
+<br />
+
+I began troubleshooting. I wanted to check for connectivity issues so I started checking for any network issues. I looked at the security group rules. The security group acts as a virtual firewall. When I checked the inbound rules I noticed there was no rule to allow traffic from the internet.
+![Instance Inbound Rules](https://github.com/user-attachments/assets/b47ef338-c2e4-45ba-91b6-75e97eb0e990)
 
 
 <br />
 
-The outbound path analysis starts from the network interface of the EC2 in vpc1 all the way up to the Amazon S3 endpoint. This analysis helps verify traffic paths, and can even demonstrate compliance in certain use cases.
-![s3 analyzer results](https://github.com/user-attachments/assets/c07115f9-ebb3-45f1-b485-a6adc93bc726)
-
-<br />
-
-I used a custom Network Access Scope to verify that a private subnet does not have internet access. For a subnet to be private, there shouldn’t be a route associated with an internet gateway.
+I used a custom Network Access Scope to verify that a private subnet does not have internet access. For a subnet to be private, there shouldn’t be a route associated with an internet gateway. There was no rule
 ![Verify private subnet analysis](https://github.com/user-attachments/assets/a31fdfb0-ff6b-4191-8598-ebbbf7f281ee)
 
 
