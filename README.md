@@ -93,58 +93,30 @@ I tried to reload the webpage after making these changes, but the page would not
 
 <br />
 
-I ran the previous analysis to test for VPC peering connection. The analysis shows that vpc1 and vpc3 are peered. Therefore, vpc2 has no peering connection to any other VPC. 
-![vpc segmentation analysis after peering connection created](https://github.com/user-attachments/assets/bcac1025-f4ff-4d0f-98e9-c5df26d122c6)
-
-<br />
-
-I used a Network Access Analyzer to validate that the private subnet in vpc2 uses a NAT gateway when accessing the internet. At the same time, validate that the private subnet in vpc1 does not have access to the internet. A common use case for having a NAT gateway in a VPC is to establish internet access for a private subnet. There are some use cases where you have a private subnet that does not require access to the internet.
-
-Review the private subnets in the architecture diagram provided in the beginning section of this lab. Both VPC 1 and VPC 2 have private subnets. However, only VPC 2 contains a NAT gateway. The diagram depicts a use case where the private subnet in VPC 2 requires access to the internet, but the private subnet in VPC 1 does not require internet access. The findings do not include the private EC2 instance in vpc1.
- <br/>
-![NAT use verification analysis](https://github.com/user-attachments/assets/6b56a585-0557-475a-aee2-18d5420f213d)
-
-<br />
-
-Network Access Scopes can be duplicated, modified, and then used to run a new analysis. This can help save time from creating a new Network Access Scope.
-I duplicated the verify-NAT-use Network Access Scope created in the previous task, and use the new scope to check any internet access path that doesn’t include a NAT gateway. The analysis confirms what you observed in the architecture diagram: VPC 3 can access the internet directly, without the need of a NAT gateway.
-
-
- <br/>
-![Duplicate and modify scope](https://github.com/user-attachments/assets/3a163b9d-3380-499c-b58e-1ccb89349e36)
+I configured the AWS Cloud9 IDE environment window to show the web server document root. To do so, in the AWS Cloud9 Bash terminal, run the following commands: <b> ln -s /var/www/ /home/ubuntu/environment/www
+sudo chown -R ubuntu /var/www/</b>.  The first command created a symlink to the /var/www directory in your environment directory. The second command changed ownership of the files in the /var/www directory so the ubuntu user (which is you) can edit the files in this www directory. If you want, you can verify the user by running whoami.
+![Configure root directory](https://github.com/user-attachments/assets/a2bd39a4-98ff-488f-807f-0b75c87e2a58)
 
 
 <br />
 
-I configured a network change to demonstrate a compliant configuration. I assumed a use case where the private instance in vpc2 is required to access a specific IP address and port number. The requirement is as follows: 
-Allow egress traffic to destination IP address 205.251.242.103 (this is an Amazon.com IP address).
-Destination port number is 443.
+I began creating a webpage for "Anycompany Bicycle parts". I was so proud of myself for getting the header to display that I deviated from the project. Here is a temporary message where I'm asking for a job.
+![Successful webpage](https://github.com/user-attachments/assets/576b59f4-0434-4933-a737-fcd9fbcef71a)
 
-Before making changes, use the Network Access Analyzer to review the current internet bound configuration path for vpc2-private-ec2.
-![vpc2 private outbound analysis](https://github.com/user-attachments/assets/fc4e221b-823c-4a18-aee1-212042016b5a)
 
-<br/>
+Now it's time to get back on track. I added some heading and paragraph elements. I was able to add hyperlinks to jump to different sections in my webpage. Additionally, I was able to open links in a different browswer from my webpage. I added a target attribute and gave it the value of "_blank." I added an HTML entity as well. I figured out how to include the copyright symbol. It can be achieved by typing: <b><p>&copy; </b>. Below you will see a snippet of my HTML code.
+![HTML code](https://github.com/user-attachments/assets/be5b5706-5f3a-43f1-a119-17471606231e)
 
-Here are the outbound rules before I made changes. 
-![Edit outbound rules before](https://github.com/user-attachments/assets/931007ba-580b-4511-a81f-f8fa43942688)
 
-<br/>
+<br />
 
-Here are the updated outbound rules. 
-![Updated outbound rules](https://github.com/user-attachments/assets/19af4fae-faa3-46a2-9c78-4a5d4bdcb9a2)
-
-<br/>
-
-I ran the analysis which shows:
-The security group destination CIDR address is 205.251.242.103/32, and the outbound port is 443.
-This analysis validates the current configuration is compliant with the requirement.
-![Updated outbound analysis compliant](https://github.com/user-attachments/assets/f124e271-d683-43a1-afd3-d30d970c1307)
-
+Finally I completed my webpage. It turned out better than I expected.
+![Completed Webpage](https://github.com/user-attachments/assets/de1a58fb-1875-431d-a32f-35b14e18a029)
 
 <br/>
 
 <h2>Summary</h2>
-The project commenced with the verification of the Apache2 web server's status in AWS Cloud9. Upon encountering networking issues that hindered webpage loading, I implemented troubleshooting steps to resolve them, facilitating access to the default Apache2 page. Subsequently, I backed up the existing index.html file, adjusted the AWS Cloud9 environment settings to properly display the document root, and created a new webpage incorporating hyperlinks, an HTML entity, and a favicon..
+The project commenced with the verification of the Apache2 web server's status in AWS Cloud9. Upon encountering networking issues that hindered webpage loading, I implemented troubleshooting steps to resolve them, facilitating access to the default Apache2 page. Subsequently, I backed up the existing index.html file, adjusted the AWS Cloud9 environment settings to properly display the document root, and created a new webpage incorporating hyperlinks, an HTML entity, and a favicon. This project gave me the confidence and skills to create webpages. I'm using the knowledge I gained to go back and enhance the repositories of my previous projects. I learned how to use features like, bold and italicize text. These changes help to visually enhance my work. I will be adding to this website in the future.
 <br />
 
 
