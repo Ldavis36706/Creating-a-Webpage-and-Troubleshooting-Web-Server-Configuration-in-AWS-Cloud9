@@ -71,14 +71,16 @@ I began troubleshooting. I wanted to check for connectivity issues so I started 
 
 <br />
 
-I used a custom Network Access Scope to verify that a private subnet does not have internet access. For a subnet to be private, there shouldn’t be a route associated with an internet gateway. There was no rule
-![Verify private subnet analysis](https://github.com/user-attachments/assets/a31fdfb0-ff6b-4191-8598-ebbbf7f281ee)
+I added an inbound rule to allow all traffic from any IP address.
+![Updated inbound rules](https://github.com/user-attachments/assets/0e8f4572-969a-4639-bbe2-6a8d6c3bc345)
+
 
 
 <br />
 
-I defined a custom Network Access Scope to verify VPC segmentation. I assumed there was a use case where vpc1 and vpc3 require a private connection through VPC peering. The analysis verifies that there aren’t any VPC peering connections.
-![verify vpc segmentation analysis](https://github.com/user-attachments/assets/544200c7-96f8-4380-9ad7-ac6eff0fc5cc)
+I reloaded the webpage after my configuration changes. It was successful this time.
+![Successfully loaded webpage](https://github.com/user-attachments/assets/0947084f-eea7-4eee-939e-ad14f1f82cc2)
+
 
 
 
