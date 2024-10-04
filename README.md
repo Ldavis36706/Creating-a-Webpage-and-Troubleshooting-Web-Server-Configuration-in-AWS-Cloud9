@@ -84,9 +84,10 @@ I reloaded the webpage after my configuration changes. It was successful this ti
 
 <br />
 
-<p>I moved the existing index.html file to a backup location. To do this: Return to the AWS Cloud9 Bash terminal, and run the following command: <b> sudo mv /var/www/html/index.html /var/tmp/</b>.</p>
-<p>I tried to reload the webpage after making these changes, but I received the following messge:</p>
-![No files in Root location](https://github.com/user-attachments/assets/8b47deac-4c2b-4902-ad54-f5be7d57c058)
+I moved the existing index.html file to a backup location. To do this: Return to the AWS Cloud9 Bash terminal, and run the following command: <b> sudo mv /var/www/html/index.html /var/tmp/</b>.
+I tried to reload the webpage after making these changes, but the page would not load.
+![No files in Root location](https://github.com/user-attachments/assets/92144ab3-8f4b-4fc0-a23a-547ecd74b64a)
+
 Figure 3: This message is displayed because there are currently no files in the DocumentRoot location.
 
 
