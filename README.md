@@ -29,7 +29,7 @@ The following diagram depicts the basic architecture of the lab environment. The
  
 ![Figure 1](https://github.com/user-attachments/assets/a04afe38-bd83-4a8c-9480-0f03c0caffd5)
 
-Figure 1: The diagram illustrates a website developer working in an AWS Cloud environment using an AWS Cloud9 IDE hosted on an Amazon Elastic Compute Cloud (Amazon EC2) instance. The instance is set up in a security-controlled public subnet of a virtual private cloud (VPC) and is accessible over the internet. The hosted website is available to consumers through the Apache HTTP Server running on the EC2 instance. For more information, refer to the following detailed diagram overview.
+<i>Figure 1: The diagram illustrates a website developer working in an AWS Cloud environment using an AWS Cloud9 IDE hosted on an Amazon Elastic Compute Cloud (Amazon EC2) instance. The instance is set up in a security-controlled public subnet of a virtual private cloud (VPC) and is accessible over the internet. The hosted website is available to consumers through the Apache HTTP Server running on the EC2 instance. For more information, refer to the following detailed diagram overview.</i>
 <br />
 <br />
 <br />
@@ -88,7 +88,7 @@ I moved the existing index.html file to a backup location. To do this: Return to
 I tried to reload the webpage after making these changes, but the page would not load.
 ![No files in Root location](https://github.com/user-attachments/assets/92144ab3-8f4b-4fc0-a23a-547ecd74b64a)
 
-Figure 3: This message is displayed because there are currently no files in the DocumentRoot location.
+<i>Figure 2: This message is displayed because there are currently no files in the DocumentRoot location.</i>
 
 
 <br />
