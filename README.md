@@ -23,19 +23,18 @@ AWS (Amazon Web Services): This project was conducted entirely in AWS, utilizing
 
 <p align="center">
 
-It's very important to understand the architectures that you are working with. I took a deep dive into the architecture by reviewing some of the resources that make up the architecture, which included: VPC's, Subnets, Route tables, Internet gateways, and NAT gateways.
+The following diagram depicts the basic architecture of the lab environment. The resources depicted in the diagram already exist in your Amazon Web Services (AWS) account when you start the lab.
 
  <br/>
  
  ![Figure 1](https://github.com/user-attachments/assets/000087ad-92cf-4e56-8ab3-0beb75c5f3af)
-Figure 1: The current preconfigured architecture has three VPCs: VPC 1 contains one private subnet and one instance. VPC 2 has a public subnet, a private subnet with an Amazon EC2 instance, an internet gateway, and a NAT gateway. And VPC 3 has an internet gateway, a public subnet, and an EC2 instance.
+Figure 1: The diagram illustrates a website developer working in an AWS Cloud environment using an AWS Cloud9 IDE hosted on an Amazon Elastic Compute Cloud (Amazon EC2) instance. The instance is set up in a security-controlled public subnet of a virtual private cloud (VPC) and is accessible over the internet. The hosted website is available to consumers through the Apache HTTP Server running on the EC2 instance. For more information, refer to the following detailed diagram overview.
 <br />
 <br />
 <br />
 
 
-The following architecture diagram shows the configuration to be added. I created Amazon Simple Storage Service (Amazon S3) gateway endpoint in VPC 1. Additionally, I created a VPC peering connection between VPC 1 and VPC 3.
-<br/>
+My first step was connecting to AWS Cloud 9 IDE. After connecting to the Cloud 9 environment I verified that the web server was running by using the following command: <b> sudo systemctl status apache2</b>.
 
  ![Figure 2](https://github.com/user-attachments/assets/007b8b94-a848-4dff-83c0-b34d812fdec9)
 Figure 2: From the original architecture, a VPC peering connection between VPC 1 and VPC 3 has been made. An Amazon S3 gateway endpoint has been added to VPC 1.
