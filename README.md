@@ -82,10 +82,12 @@ I reloaded the webpage after my configuration changes. It was successful this ti
 ![Successfully loaded webpage](https://github.com/user-attachments/assets/0947084f-eea7-4eee-939e-ad14f1f82cc2)
 
 
+<br />
 
-
-I created a VPC peering connection between vpc1 and vpc3.
-![Create peering connection request](https://github.com/user-attachments/assets/49440e9b-85a0-438c-9323-3a86d0ab5063)
+<p>I moved the existing index.html file to a backup location. To do this: Return to the AWS Cloud9 Bash terminal, and run the following command: <b> sudo mv /var/www/html/index.html /var/tmp/</b>.</p>
+<p>I tried to reload the webpage after making these changes, but I received the following messge:</p>
+![No files in Root location](https://github.com/user-attachments/assets/8b47deac-4c2b-4902-ad54-f5be7d57c058)
+Figure 3: This message is displayed because there are currently no files in the DocumentRoot location.
 
 
 <br />
