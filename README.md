@@ -1,6 +1,5 @@
 # Creating a Webpage and Troubleshooting Web Server Configuration in AWS Cloud9
 
- ### [YouTube Demonstration](https://youtu.be/7eJexJVCqJo)
 
 <h2>Description</h2>
 This project involved setting up, configuring, and verifying a web server within an AWS Cloud9 environment running on an Ubuntu Linux EC2 instance. The tasks included resolving networking issues to ensure the server's accessibility, configuring the environment to display the web server's document root, and developing a basic webpage featuring hyperlinks, an HTML entity, and a favicon.<br />
